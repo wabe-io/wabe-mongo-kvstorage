@@ -20,6 +20,7 @@ services:
 
   wabe-mongo-kvstorage:
     build:
+      context: .
       dockerfile: ./test.Dockerfile
     depends_on:
       mongo:
