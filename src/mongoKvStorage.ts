@@ -61,6 +61,8 @@ export class MongoKvStorage implements KVStorage {
     this.db = client.db(this.dbName);
   };
 
+  isConnected = () => !!this.db;
+
   getCollection = async (name: string): Promise<KVStorageCollection> => {
     if (this.db == null) {
       await this.connect();

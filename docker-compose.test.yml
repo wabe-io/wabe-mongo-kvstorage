@@ -1,0 +1,35 @@
+# Docker compose file for testing
+version: '3.7'
+
+services:
+  mongo:
+    image: mongo:6.0
+    ports:
+      - '27017:27017'
+    volumes:
+      - 'mongo:/data/db'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=test
+      - MONGO_INITDB_ROOT_PASSWORD=test
+    healthcheck:
+      test: echo 'db.runCommand({serverStatus:1}).ok' | mongosh admin -u test -p test --quiet | grep 1
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  wabe-mongo-kvstorage:
+    image: node:16.20-alpine
+    command: sh -c "yarn install && yarn typecheck && yarn circular-deps && yarn prettier && yarn lint && yarn test-internal"
+    working_dir: /app
+    depends_on:
+      mongo:
+        condition: service_healthy
+    volumes:
+      - ./:/app
+    environment:
+      - MONGO_URL=mongodb://test:test@mongo:27017
+      - MONGO_DB=wabe-mongo-kvstorage-test
+
+volumes:
+  mongo:

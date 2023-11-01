@@ -6,14 +6,15 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
-    "test": "./node_modules/.bin/ts-mocha -p ./tsconfig.json src/**/*.test.ts",
+    "test-internal": "./node_modules/.bin/ts-mocha -p ./tsconfig.json src/**/*.test.ts",
+    "test": "docker compose -f ./docker-compose.test.yml up",
     "build": "./node_modules/.bin/tsc",
     "prettier": "prettier --check .",
     "typecheck": "./node_modules/.bin/tsc --noEmit",
     "circular-deps": "madge -c --extensions \"ts,tsx\" --ts-config=tsconfig.json src/",
     "link": "npm run build && cd dist && npm link",
-    "verify": "yarn typecheck && yarn circular-deps && yarn prettier && yarn lint && yarn test",
-    "prepublishOnly": "yarn verify && yarn build"
+    "verify": "yarn typecheck && yarn circular-deps && yarn prettier && yarn lint & yarn test",
+    "prepublishOnly": "yarn test && yarn build"
   },
   "repository": {
     "type": "git",
