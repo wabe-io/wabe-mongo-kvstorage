@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:wabe-io/wabe-ts.git"
+    "url": "git@github.com:wabe-io/wabe-mongo-kvstorage.git"
   },
   "bugs": {
-    "url": "https://github.com/wabe-io/wabe-ts/issues"
+    "url": "https://github.com/wabe-io/wabe-mongo-kvstorage/issues"
   },
-  "homepage": "https://github.com/wabe-io/wabe-ts",
-  "author": "Hernán Pentimalli <h.pentimalli+wabets@gmail.com>",
+  "homepage": "https://github.com/wabe-io/wabe-mongo-kvstorage",
+  "author": "Hernán Pentimalli <h.pentimalli+wabemongokvstorage@gmail.com>",
   "license": "MIT",
   "keywords": [
     "typescript",
