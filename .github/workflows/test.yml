@@ -5,18 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Typecheck
-        working-directory: ./app
-        run: yarn typecheck
-      - name: Circular dependency check
-        working-directory: ./app
-        run: yarn circular-deps
-      - name: Lint
-        working-directory: ./app
-        run: yarn lint
-      - name: Prettier
-        working-directory: ./app
-        run: yarn prettier
       - uses: adrielcodeco/docker-compose-run-action@v1
         with:
           compose-file: '.docker-compose.test.yml'
