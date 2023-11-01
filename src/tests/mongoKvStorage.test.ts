@@ -23,8 +23,12 @@ beforeEach(async () => {
   await store.connect();
 });
 
-describe('MongoKvStorage', () => {
-  it('can connect', () => {
+afterEach(async () => {
+  await store.disconnect();
+});
+
+describe('MongoKvStorage', async () => {
+  it('can connect', async () => {
     expect(store.isConnected()).to.be.true;
   });
 

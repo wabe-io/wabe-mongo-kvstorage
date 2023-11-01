@@ -40,6 +40,7 @@ export class MongoKvStorage implements KVStorage {
   mongoUrl: string;
   dbName: string;
   db: Db | undefined;
+  client: MongoClient | undefined;
 
   constructor({
     prefix = '',
@@ -56,9 +57,13 @@ export class MongoKvStorage implements KVStorage {
   }
 
   connect = async () => {
-    const client = new MongoClient(this.mongoUrl);
-    await client.connect();
-    this.db = client.db(this.dbName);
+    this.client = new MongoClient(this.mongoUrl);
+    await this.client.connect();
+    this.db = this.client.db(this.dbName);
+  };
+
+  disconnect = async () => {
+    await this.client?.close();
   };
 
   isConnected = () => !!this.db;
