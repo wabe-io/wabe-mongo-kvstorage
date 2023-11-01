@@ -19,14 +19,11 @@ services:
       start_period: 5s
 
   wabe-mongo-kvstorage:
-    image: node:16.20-alpine
-    command: sh -c "yarn install && yarn typecheck && yarn circular-deps && yarn prettier && yarn lint && yarn test-internal"
-    working_dir: /app
+    build:
+      dockerfile: ./test.Dockerfile
     depends_on:
       mongo:
         condition: service_healthy
-    volumes:
-      - ./:/app
     environment:
       - MONGO_URL=mongodb://test:test@mongo:27017
       - MONGO_DB=wabe-mongo-kvstorage-test
