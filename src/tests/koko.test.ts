@@ -10,8 +10,6 @@ beforeEach(async () => {
   const url = process.env.MONGO_URL;
   const db = process.env.MONGO_DB;
 
-  console.log(`The URL is ${url}. DB is ${db}`);
-
   if (!url || !db) {
     throw new Error('url or db were not provided');
   }
@@ -21,6 +19,7 @@ beforeEach(async () => {
     mongoUrl: url,
     dbName: db,
   });
+
   await store.connect();
 });
 

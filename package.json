@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "test-internal": "./node_modules/.bin/ts-mocha -p ./tsconfig.json src/**/*.test.ts",
-    "test": "docker compose -f ./docker-compose.test.yml up",
+    "test": "docker compose -f ./docker-compose.test.yml run wabe-mongo-kvstorage",
     "build": "./node_modules/.bin/tsc",
     "prettier": "prettier --check .",
     "typecheck": "./node_modules/.bin/tsc --noEmit",
