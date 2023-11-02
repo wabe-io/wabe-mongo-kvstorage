@@ -83,4 +83,22 @@ describe('MongoKvStorageCollection', () => {
     expect(await col.findByKey('bar')).to.be.null;
     expect(await col.findByKey('baz')).to.be.null;
   });
+
+  it('returns an empty array when initialized', async () => {
+    const col = await store.getCollection('foo');
+    const keys = await col.getAllKeys();
+    expect(keys.length).to.eq(0);
+  });
+
+  it('can retrieve all keys', async () => {
+    const col = await store.getCollection('foo');
+    await col.setValue('bar', 'something');
+    await col.setValue('baz', 'something2');
+    await col.setValue('bax', 'something3');
+    const keys = await col.getAllKeys();
+    expect(keys.length).to.eq(3);
+    expect(keys).to.include('bar');
+    expect(keys).to.include('baz');
+    expect(keys).to.include('bax');
+  });
 });

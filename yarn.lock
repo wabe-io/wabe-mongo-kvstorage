@@ -2276,10 +2276,10 @@ v8-compile-cache-lib@^3.0.1:
   resolved "https://registry.yarnpkg.com/v8-compile-cache-lib/-/v8-compile-cache-lib-3.0.1.tgz#6336e8d71965cb3d35a1bbb7868445a7c05264bf"
   integrity sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==
 
-wabe-ts@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/wabe-ts/-/wabe-ts-1.8.1.tgz#2039b6c114407d90bae9b92349b40ac8829490a1"
-  integrity sha512-kde36GgJvmt8gT18ilgZy7mkL5VQ8PnO7AN/Far5ZWxVlD+Tuo4K8mJ9XRol31bNSmvq7pm4hSG4chyhaSw5hQ==
+wabe-ts@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/wabe-ts/-/wabe-ts-1.9.0.tgz#0c8950074f71f18d22b830094519ff09557cb987"
+  integrity sha512-bZVjMX3lmM6Fi4imzqI6/XLOKEuFEtrdsrSEQ9WuTWEhP2xMVn1u8t87y2CLlIKDONacpqM5nCjVk1u0+ZQN0A==
   dependencies:
     ts-decoder "^1.0.0"
 

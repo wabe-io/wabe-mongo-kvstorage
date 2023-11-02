@@ -33,6 +33,9 @@ export class MongoKvStorageCollection implements KVStorageCollection {
   emptyCollection = async () => {
     await this.collection.deleteMany({});
   };
+
+  getAllKeys = async (): Promise<string[]> =>
+    (await this.collection.find({}).toArray()).map((row) => row._id);
 }
 
 export class MongoKvStorage implements KVStorage {
